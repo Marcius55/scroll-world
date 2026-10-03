@@ -4,7 +4,7 @@ A scroll-controlled cinematic microsite built for the BMW M3 scroll-world assign
 
 ## Live website
 
-Add the published URL here after deploying.
+https://bmw-chi-one.vercel.app/
 
 ## GitHub repository
 
