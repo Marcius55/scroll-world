@@ -42,20 +42,52 @@
     }
 
     .sw-root .sw-topbar {
-      padding-top: clamp(16px, 2.6vw, 30px);
+      display: grid;
+      grid-template-columns: minmax(72px, 1fr) auto minmax(148px, 1fr);
+      align-items: center;
+      gap: clamp(14px, 2vw, 26px);
+      padding-top: clamp(14px, 2.2vw, 24px);
     }
 
     .sw-root .sw-brand {
       color: #f6f3f1;
       letter-spacing: 0.03em;
+      justify-self: start;
     }
 
     .sw-root .sw-brand__mark {
-      width: 46px;
-      height: 46px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
-      background: url("assets/bmw-logo.svg") center / contain no-repeat;
-      box-shadow: 0 0 18px rgba(255, 255, 255, 0.16), 0 0 28px rgba(237, 27, 61, 0.2);
+      position: relative;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 50%, #ffffff 0 38%, #050507 39% 48%, #ffffff 49% 100%);
+      border: 1px solid rgba(255, 255, 255, 0.94);
+      filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 24px rgba(237, 27, 61, 0.22));
+      isolation: isolate;
+    }
+
+    .sw-root .sw-brand__mark::before {
+      content: "BMW";
+      position: relative;
+      z-index: 1;
+      color: #050507;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      transform: translateX(0.5px);
+    }
+
+    .sw-root .sw-brand__mark::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 0 22px rgba(255, 255, 255, 0.18), 0 0 32px rgba(237, 27, 61, 0.2);
+      pointer-events: none;
     }
 
     .sw-root .sw-brand__name {
@@ -63,18 +95,25 @@
     }
 
     .sw-root .sw-nav {
-      display: none;
-      background: rgba(8, 8, 10, 0.62);
-      border-color: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+      justify-self: center;
+      display: flex;
+      align-items: center;
+      max-width: min(62vw, 760px);
+      overflow: hidden;
+      background: rgba(8, 8, 10, 0.48);
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(18px);
     }
 
     .sw-root .sw-nav__item {
-      color: rgba(246, 243, 241, 0.64);
-      max-width: 110px;
+      color: rgba(246, 243, 241, 0.68);
+      max-width: 96px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      padding: 8px 12px;
+      line-height: 1;
     }
 
     .sw-root .sw-nav__item:hover,
@@ -94,6 +133,7 @@
       justify-content: center;
       text-align: center;
       line-height: 1;
+      box-sizing: border-box;
     }
 
     .sw-root .sw-topcta,
@@ -101,6 +141,21 @@
       background: #ed1b3d;
       color: #fff;
       box-shadow: 0 16px 34px rgba(237, 27, 61, 0.25);
+    }
+
+    .sw-root .sw-topcta {
+      justify-self: end;
+      height: 46px;
+      min-width: 148px;
+      padding: 0 24px 1px;
+      align-self: center;
+      letter-spacing: 0.01em;
+      box-shadow: 0 18px 36px rgba(237, 27, 61, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    }
+
+    .sw-root .sw-btn {
+      min-height: 46px;
+      padding: 0 24px 1px;
     }
 
     .sw-root .sw-copylayer::before {
@@ -149,6 +204,25 @@
       background: rgba(237, 27, 61, 0.9);
     }
 
+    .sw-root .sw-route {
+      width: 44px;
+      align-items: center;
+      right: clamp(12px, 2vw, 26px);
+      padding-inline: 0;
+    }
+
+    .sw-root .sw-route__dot {
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      place-items: center;
+    }
+
+    .sw-root .sw-route__dot i {
+      width: 8px;
+      height: 8px;
+    }
+
     .sw-root .sw-route__label {
       color: #fff;
       background: rgba(8, 8, 10, 0.72);
@@ -157,6 +231,7 @@
 
     .sw-root .sw-hint {
       color: rgba(246, 243, 241, 0.72);
+      bottom: calc(22px + env(safe-area-inset-bottom));
     }
 
     .sw-root .sw-hint i {
@@ -169,6 +244,27 @@
     }
 
     @media (max-width: 860px) {
+      .sw-root .sw-topbar {
+        grid-template-columns: auto 1fr;
+        padding: 14px 18px 0;
+      }
+
+      .sw-root .sw-nav {
+        display: none;
+      }
+
+      .sw-root .sw-brand__mark {
+        width: 44px;
+        height: 44px;
+      }
+
+      .sw-root .sw-topcta {
+        min-width: 138px;
+        height: 42px;
+        padding: 0 18px 1px;
+        font-size: 0.84rem;
+      }
+
       .sw-root .sw-copylayer::before {
         width: 100%;
         height: 68%;
@@ -178,6 +274,18 @@
 
       .sw-root .sw-copy {
         width: auto;
+        bottom: calc(clamp(112px, 20dvh, 152px) + env(safe-area-inset-bottom));
+      }
+
+      .sw-root .sw-hint {
+        bottom: calc(18px + env(safe-area-inset-bottom));
+        transform: translateX(-50%) scale(0.9);
+      }
+
+      .sw-root .sw-route {
+        right: 8px;
+        width: 34px;
+        gap: 14px;
       }
     }
   </style>
@@ -303,7 +411,7 @@
       brand: { name: 'BMW', href: '#top' },
       cta: { label: 'Scroll the drive', href: '#top' },
       hint: 'scroll to enter',
-      nav: false,
+      nav: true,
       atmosphere: false,
       crossfade: 0.09,
       diveScroll: 1.24,
