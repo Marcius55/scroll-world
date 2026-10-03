@@ -60,24 +60,10 @@
       height: 52px;
       border-radius: 50%;
       position: relative;
-      display: grid;
-      place-items: center;
-      background:
-        radial-gradient(circle at 50% 50%, #ffffff 0 38%, #050507 39% 48%, #ffffff 49% 100%);
-      border: 1px solid rgba(255, 255, 255, 0.94);
+      background: #000 url("assets/bmw-logo-upload.png") center / contain no-repeat;
+      border: 1px solid rgba(255, 255, 255, 0.72);
       filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 24px rgba(237, 27, 61, 0.22));
       isolation: isolate;
-    }
-
-    .sw-root .sw-brand__mark::before {
-      content: "BMW";
-      position: relative;
-      z-index: 1;
-      color: #050507;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      transform: translateX(0.5px);
     }
 
     .sw-root .sw-brand__mark::after {
@@ -401,8 +387,7 @@
         body: 'The door settles shut and the full silhouette returns to the studio: low, wide and unmistakably M.',
         tags: ['Side profile', 'Closed-door finish', 'Wet studio reflection'],
         cta: {
-          primary: { label: 'Replay the sequence', href: '#top' },
-          secondary: { label: 'View on GitHub', href: 'https://github.com/Marcius55/bmw-m3-scroll-world' }
+          primary: { label: 'Replay the sequence', href: '#top' }
         }
       }
     ];
@@ -411,7 +396,7 @@
       brand: { name: 'BMW', href: '#top' },
       cta: { label: 'Scroll the drive', href: '#top' },
       hint: 'scroll to enter',
-      nav: true,
+      nav: false,
       atmosphere: false,
       crossfade: 0.09,
       diveScroll: 1.24,
