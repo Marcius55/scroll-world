@@ -1,6 +1,6 @@
 # M3 Noir Sequence
 
-A scroll-controlled cinematic microsite built for the BMW M3 scroll-world assignment. The page turns seven generated video clips into one smooth journey: exterior studio, door opening, cabin entry, dashboard wake-up, cluster focus, console detail, and ambient interior lighting.
+A scroll-controlled cinematic microsite built for the BMW M3 scroll-world assignment. The page turns eight generated video clips into one smooth journey: exterior studio, door opening, cabin entry, dashboard wake-up, cluster focus, console detail, ambient interior lighting, and a closing side-profile reveal.
 
 ## Live website
 

@@ -51,16 +51,19 @@
     }
 
     .sw-root .sw-brand__mark {
-      width: 28px;
-      height: 28px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
-      background:
-        radial-gradient(circle, rgba(255, 255, 255, 0.86) 0 12%, transparent 13%),
-        conic-gradient(from 45deg, #ed1b3d, #26050b, #ed1b3d, #040405, #ed1b3d);
-      box-shadow: 0 0 22px rgba(237, 27, 61, 0.58);
+      background: url("assets/bmw-logo.svg") center / contain no-repeat;
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.16), 0 0 28px rgba(237, 27, 61, 0.2);
+    }
+
+    .sw-root .sw-brand__name {
+      display: none;
     }
 
     .sw-root .sw-nav {
+      display: none;
       background: rgba(8, 8, 10, 0.62);
       border-color: rgba(255, 255, 255, 0.12);
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
@@ -82,6 +85,15 @@
     .sw-root .sw-nav__item.is-active {
       background: rgba(237, 27, 61, 0.82);
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+
+    .sw-root .sw-topcta,
+    .sw-root .sw-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1;
     }
 
     .sw-root .sw-topcta,
@@ -266,7 +278,20 @@
         eyebrow: 'Atmosphere',
         title: 'Performance, illuminated.',
         body: 'A continuous red light signature ties exterior aggression to interior calm.',
-        tags: ['Ambient lighting', 'Door contour', 'Night drive mood'],
+        tags: ['Ambient lighting', 'Door contour', 'Night drive mood']
+      },
+      {
+        id: 'exit',
+        label: 'Profile',
+        still: 'assets/poster/08-exit.jpg',
+        clip: 'assets/vid/08-exit.mp4',
+        accent: '#ff4b63',
+        scroll: 1.34,
+        linger: 0.38,
+        eyebrow: 'Final stance',
+        title: 'Composure after the surge.',
+        body: 'The door settles shut and the full silhouette returns to the studio: low, wide and unmistakably M.',
+        tags: ['Side profile', 'Closed-door finish', 'Wet studio reflection'],
         cta: {
           primary: { label: 'Replay the sequence', href: '#top' },
           secondary: { label: 'View on GitHub', href: 'https://github.com/Marcius55/bmw-m3-scroll-world' }
@@ -275,10 +300,10 @@
     ];
 
     mountScrollWorld(document.getElementById('world'), {
-      brand: { name: 'M3 Noir Sequence', href: '#top' },
+      brand: { name: 'BMW', href: '#top' },
       cta: { label: 'Scroll the drive', href: '#top' },
       hint: 'scroll to enter',
-      nav: true,
+      nav: false,
       atmosphere: false,
       crossfade: 0.09,
       diveScroll: 1.24,
