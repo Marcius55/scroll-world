@@ -68,6 +68,10 @@
 
     .sw-root .sw-nav__item {
       color: rgba(246, 243, 241, 0.64);
+      max-width: 110px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .sw-root .sw-nav__item:hover,
@@ -94,7 +98,7 @@
     }
 
     .sw-root .sw-copy {
-      width: min(40vw, 430px);
+      width: min(39vw, 430px);
     }
 
     .sw-root .sw-copy__num {
@@ -172,75 +176,117 @@
 
   <script src="scrub-engine.js"></script>
   <script>
+    const sections = [
+      {
+        id: 'studio',
+        label: 'Studio',
+        still: 'assets/poster/01-studio.jpg',
+        clip: 'assets/vid/01-studio.mp4',
+        accent: '#ed1b3d',
+        scroll: 1.36,
+        linger: 0.16,
+        eyebrow: 'The M3',
+        title: 'Intensity in its purest form.',
+        body: 'A sculpted sports sedan, reduced to shadow, stance and the unmistakable red pulse of performance.',
+        tags: ['Competition spirit', 'Matte presence', 'Track-bred stance']
+      },
+      {
+        id: 'door',
+        label: 'Access',
+        still: 'assets/poster/02-door.jpg',
+        clip: 'assets/vid/02-door.mp4',
+        accent: '#ff304f',
+        scroll: 1.22,
+        linger: 0.18,
+        eyebrow: 'Design',
+        title: 'Every line invites control.',
+        body: 'The exterior tension carries inward, opening to a cockpit designed around the driver.',
+        tags: ['Driver access', 'Sculpted surfaces', 'Purposeful detail']
+      },
+      {
+        id: 'cockpit',
+        label: 'Entry',
+        still: 'assets/poster/03-cockpit.jpg',
+        clip: 'assets/vid/03-cockpit.mp4',
+        accent: '#fb2445',
+        scroll: 1.26,
+        linger: 0.24,
+        eyebrow: 'Cockpit',
+        title: 'Built around the pulse.',
+        body: 'A focused cabin surrounds you with deep black materials, precise controls and a low red glow.',
+        tags: ['Driver-oriented', 'Carbon texture', 'Ambient red']
+      },
+      {
+        id: 'ignition',
+        label: 'Ignition',
+        still: 'assets/poster/04-ignition.jpg',
+        clip: 'assets/vid/04-ignition.mp4',
+        accent: '#ff3d59',
+        scroll: 1.38,
+        linger: 0.34,
+        eyebrow: 'Ignition',
+        title: 'Ready before the first touch.',
+        body: 'Displays come alive with a clean digital glow, setting the cabin into a precise performance state.',
+        tags: ['Live display', 'Performance focus', 'Ready state']
+      },
+      {
+        id: 'cluster',
+        label: 'Cluster',
+        still: 'assets/poster/05-cluster.jpg',
+        clip: 'assets/vid/05-cluster.mp4',
+        accent: '#ff435f',
+        scroll: 1.18,
+        linger: 0.28,
+        eyebrow: 'Interface',
+        title: 'Information, sharpened.',
+        body: 'The driver display prioritizes what matters: speed, response and the next decision.',
+        tags: ['Digital cluster', 'Clear readout', 'Fast focus']
+      },
+      {
+        id: 'console',
+        label: 'Console',
+        still: 'assets/poster/06-console.jpg',
+        clip: 'assets/vid/06-console.mp4',
+        accent: '#ff4d67',
+        scroll: 1.2,
+        linger: 0.3,
+        eyebrow: 'Materials',
+        title: 'Precision you can feel.',
+        body: 'Carbon-fiber surfaces, stitched leather and gloss-black controls turn the center console into a command zone.',
+        tags: ['Carbon fiber', 'Tactile controls', 'Sport finish']
+      },
+      {
+        id: 'ambient',
+        label: 'Ambient',
+        still: 'assets/poster/07-ambient.jpg',
+        clip: 'assets/vid/07-ambient.mp4',
+        accent: '#ff5570',
+        scroll: 1.22,
+        linger: 0.32,
+        eyebrow: 'Atmosphere',
+        title: 'Performance, illuminated.',
+        body: 'A continuous red light signature ties exterior aggression to interior calm.',
+        tags: ['Ambient lighting', 'Door contour', 'Night drive mood'],
+        cta: {
+          primary: { label: 'Replay the sequence', href: '#top' },
+          secondary: { label: 'View on GitHub', href: 'https://github.com/Marcius55/bmw-m3-scroll-world' }
+        }
+      }
+    ];
+
     mountScrollWorld(document.getElementById('world'), {
       brand: { name: 'M3 Noir Sequence', href: '#top' },
       cta: { label: 'Scroll the drive', href: '#top' },
       hint: 'scroll to enter',
       nav: true,
       atmosphere: false,
-      crossfade: 0.1,
-      diveScroll: 1.28,
+      crossfade: 0.09,
+      diveScroll: 1.24,
       connScroll: 0.55,
-      sections: [
-        {
-          id: 'studio',
-          label: 'Studio',
-          still: 'assets/poster/01-studio.jpg',
-          clip: 'assets/vid/01-studio.mp4',
-          accent: '#ed1b3d',
-          scroll: 1.45,
-          linger: 0.18,
-          eyebrow: 'Exterior',
-          title: 'Black paint, red pulse.',
-          body: 'The journey starts low on the wet studio floor, closing in on the matte body and red light signature.',
-          tags: ['Matte black', 'Wet floor', 'Red signature']
-        },
-        {
-          id: 'door',
-          label: 'Access',
-          still: 'assets/poster/02-door.jpg',
-          clip: 'assets/vid/02-door.mp4',
-          accent: '#ff304f',
-          scroll: 1.35,
-          linger: 0.2,
-          eyebrow: 'Transition',
-          title: 'The door opens.',
-          body: 'The camera shifts right as the driver-side door reveals the next space without breaking the shot.',
-          tags: ['One movement', 'Driver side', 'No hard cut']
-        },
-        {
-          id: 'cockpit',
-          label: 'Cockpit',
-          still: 'assets/poster/03-cockpit.jpg',
-          clip: 'assets/vid/03-cockpit.mp4',
-          accent: '#fb2445',
-          scroll: 1.38,
-          linger: 0.28,
-          eyebrow: 'Interior',
-          title: 'Inside the cabin.',
-          body: 'Leather, carbon texture and red ambient lines come forward as the camera crosses the open doorway.',
-          tags: ['Open cabin', 'Carbon detail', 'Dark studio']
-        },
-        {
-          id: 'ignition',
-          label: 'Ignition',
-          still: 'assets/poster/04-ignition.jpg',
-          clip: 'assets/vid/04-ignition.mp4',
-          accent: '#ff3d59',
-          scroll: 1.75,
-          linger: 0.42,
-          eyebrow: 'Finale',
-          title: 'The cockpit wakes.',
-          body: 'The displays brighten and the red cabin light settles into the final hero moment.',
-          tags: ['Dashboard glow', 'Ambient red', 'Ready state'],
-          cta: {
-            primary: { label: 'Replay the sequence', href: '#top' },
-            secondary: { label: 'View on GitHub', href: 'https://github.com/Marcius55/bmw-m3-scroll-world' }
-          }
-        }
-      ],
+      sections,
       connectors: []
     });
+
   </script>
 </body>
 </html>
